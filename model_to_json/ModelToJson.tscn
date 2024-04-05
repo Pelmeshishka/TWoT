@@ -1,0 +1,249 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwe6ar3jugpqp"]
+
+[ext_resource type="Script" path="res://model_to_json/ModelToJson.cs" id="1_8e4tj"]
+[ext_resource type="ArrayMesh" uid="uid://di1lopppiqi13" path="res://test/test.tres" id="2_x3h2i"]
+[ext_resource type="ArrayMesh" uid="uid://3nlq0i67pw6f" path="res://test/test6.tres" id="3_equpx"]
+[ext_resource type="PackedScene" uid="uid://cj5mgai3bb1ke" path="res://entity/ServerCamera.tscn" id="4_0nwrx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l16ys"]
+
+[sub_resource type="Sky" id="Sky_qr2w2"]
+sky_material = SubResource("ProceduralSkyMaterial_l16ys")
+
+[sub_resource type="Environment" id="Environment_2f1yf"]
+background_mode = 2
+background_color = Color(0.168627, 0.215686, 0.184314, 1)
+sky = SubResource("Sky_qr2w2")
+ambient_light_source = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48s22"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6d4y"]
+
+[node name="ModelToJson" type="Node3D" node_paths=PackedStringArray("fromInstance", "fromColl", "toInstance", "toColl", "fromLabel", "texturesContainer", "openDialog", "saveDialog", "uvLockEntry", "rotXEntry", "rotYEntry")]
+script = ExtResource("1_8e4tj")
+fromInstance = NodePath("From")
+fromColl = NodePath("From/StaticBody3D/FromColl")
+toInstance = NodePath("To")
+toColl = NodePath("To/StaticBody3D/ToColl")
+fromLabel = NodePath("Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/FromLabel")
+texturesContainer = NodePath("Control/MarginContainer/VBoxContainer/Params/VBoxContainer/ScrollContainer/Textures")
+openDialog = NodePath("Control/OpenModel")
+saveDialog = NodePath("Control/SaveJson")
+uvLockEntry = NodePath("Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer/UVlock")
+rotXEntry = NodePath("Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer3/RotX")
+rotYEntry = NodePath("Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer2/RotY")
+
+[node name="From" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5, 0, -0.5)
+mesh = ExtResource("2_x3h2i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="From"]
+
+[node name="FromColl" type="CollisionShape3D" parent="From/StaticBody3D"]
+
+[node name="To" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_equpx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="To"]
+
+[node name="ToColl" type="CollisionShape3D" parent="To/StaticBody3D"]
+
+[node name="Control" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00784314, 0.054902, 0.0588235, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Screen" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Cam1" type="SubViewportContainer" parent="Control/MarginContainer/VBoxContainer/Screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/MarginContainer/VBoxContainer/Screen/Cam1"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="Control/MarginContainer/VBoxContainer/Screen/Cam1/SubViewport"]
+transform = Transform3D(0.64679, 0.381334, -0.66049, 0, 0.866025, 0.5, 0.762668, -0.323395, 0.560136, 0, 0, 0)
+
+[node name="ServerCamera" parent="Control/MarginContainer/VBoxContainer/Screen/Cam1/SubViewport/Node3D" instance=ExtResource("4_0nwrx")]
+transform = Transform3D(0.64679, 2.5332e-07, 0.762668, 0.381334, 0.866026, -0.323395, -0.66049, 0.5, 0.560137, 0, 0, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Save" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="Open" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Open"
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "From: "
+
+[node name="FromLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FromModel
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ApplyTextures" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Apply Textures"
+
+[node name="GreedyMeshing" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Greedy Meshing"
+
+[node name="Params" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/Params"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer"]
+layout_mode = 2
+text = "Textures"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14902, 0.34902, 0.345098, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Textures" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/Params"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "UVlock: "
+
+[node name="UVlock" type="CheckBox" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+text = "Rotation X: "
+
+[node name="RotX" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+min_value = -360.0
+max_value = 360.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "Rotation Y: "
+
+[node name="RotY" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+min_value = -360.0
+max_value = 360.0
+
+[node name="OpenModel" type="FileDialog" parent="Control"]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(700, 500)
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.glb", "*.json")
+
+[node name="SaveJson" type="FileDialog" parent="Control"]
+initial_position = 1
+size = Vector2i(700, 500)
+ok_button_text = "Save"
+root_subfolder = "res://assets/"
+filters = PackedStringArray("*.json")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2f1yf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707106, 0.707106, -0.707107, -0.5, 0.5, 0, 0, 0)
+light_energy = 0.01
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.707107, 0.5, -0.5, 0, 0.707106, 0.707106, 0.707107, 0.5, -0.5, 0, 0, 0)
+light_energy = 0.01
+shadow_enabled = true
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, 0.289218, -0.645254, 0, 0.912528, 0.409015, 0.707107, -0.289218, 0.645254, 0, 3.47091, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.05506, -5.96046e-08, -0.00135756)
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_48s22")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+operation = 2
+size = Vector3(2.5, 2.5, 2.5)
+material = SubResource("StandardMaterial3D_s6d4y")
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/Save" to="." method="SavePressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/Open" to="." method="OpenPressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/ApplyTextures" to="." method="ApplyTextures"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/GreedyMeshing" to="." method="GreedyMeshing"]
+[connection signal="toggled" from="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer/UVlock" to="." method="UVLockChanged"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer3/RotX" to="." method="OnRotChanged"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/Params/VBoxContainer2/HBoxContainer2/RotY" to="." method="OnRotChanged"]
+[connection signal="file_selected" from="Control/OpenModel" to="." method="OpenModel"]
+[connection signal="file_selected" from="Control/SaveJson" to="." method="SaveJson"]

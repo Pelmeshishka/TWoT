@@ -1,0 +1,9 @@
+{
+  "parent": "twot:blocksided",
+  "texturePaths": {
+	"up": "twot:grass",
+	"side": "twot:grass_dirt",
+	"down": "twot:dirt"
+  },
+  "faces": []
+}

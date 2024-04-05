@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=3 uid="uid://cj5mgai3bb1ke"]
+
+[ext_resource type="Script" path="res://entity/ServerCamera.cs" id="1_lbhqu"]
+[ext_resource type="ArrayMesh" uid="uid://dd5x5we3ool1w" path="res://test/test2.tres" id="2_2g45g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7v8sm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4j4cw"]
+albedo_color = Color(0.996078, 0.121569, 0.0980392, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o48nj"]
+material = SubResource("StandardMaterial3D_4j4cw")
+size = Vector3(0.1, 0.1, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pqmm"]
+albedo_color = Color(0, 0.576471, 0.866667, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_my5f6"]
+material = SubResource("StandardMaterial3D_5pqmm")
+size = Vector3(0.1, 0.1, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hs37a"]
+albedo_color = Color(0.34902, 0.623529, 0.196078, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b7f5u"]
+material = SubResource("StandardMaterial3D_hs37a")
+size = Vector3(0.1, 0.1, 0.4)
+
+[node name="ServerCamera" type="CharacterBody3D" node_paths=PackedStringArray("yRot", "xRot", "collision", "posLabel", "chunkPosLabel", "sectionPosLabel", "blockPosLabel", "head", "testMesh")]
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_lbhqu")
+yRot = NodePath("Y")
+xRot = NodePath("Y/X")
+collision = NodePath("CollisionShape3D")
+posLabel = NodePath("Control/HBoxContainer/left/pos/posLabel")
+chunkPosLabel = NodePath("Control/HBoxContainer/left/chunkPos/chunkPosLabel")
+sectionPosLabel = NodePath("Control/HBoxContainer/left/sectionPos/sectionPosLabel")
+blockPosLabel = NodePath("Control/HBoxContainer/left/blockPos/blockPosLabel")
+head = NodePath("Y/X/Camera3D")
+testMesh = NodePath("MeshInstance3D4")
+
+[node name="Y" type="Node3D" parent="."]
+
+[node name="X" type="Node3D" parent="Y"]
+
+[node name="Camera3D" type="Camera3D" parent="Y/X"]
+near = 0.01
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7v8sm")
+disabled = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.257214, -1.12746, 0.0349038)
+mesh = SubResource("BoxMesh_o48nj")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12746, 0.303086)
+mesh = SubResource("BoxMesh_my5f6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.862914, 0.0429354)
+mesh = SubResource("BoxMesh_b7f5u")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="pos" type="HBoxContainer" parent="Control/HBoxContainer/left"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/left/pos"]
+layout_mode = 2
+text = "Position: "
+
+[node name="posLabel" type="Label" parent="Control/HBoxContainer/left/pos"]
+layout_mode = 2
+text = "x/y/z"
+
+[node name="chunkPos" type="HBoxContainer" parent="Control/HBoxContainer/left"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/left/chunkPos"]
+layout_mode = 2
+text = "ChunkPos: "
+
+[node name="chunkPosLabel" type="Label" parent="Control/HBoxContainer/left/chunkPos"]
+layout_mode = 2
+text = "x/z"
+
+[node name="sectionPos" type="HBoxContainer" parent="Control/HBoxContainer/left"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/left/sectionPos"]
+layout_mode = 2
+text = "Section: "
+
+[node name="sectionPosLabel" type="Label" parent="Control/HBoxContainer/left/sectionPos"]
+layout_mode = 2
+text = "y"
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/left"]
+layout_mode = 2
+
+[node name="blockPos" type="HBoxContainer" parent="Control/HBoxContainer/left"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/left/blockPos"]
+layout_mode = 2
+text = "Look at block: "
+
+[node name="blockPosLabel" type="Label" parent="Control/HBoxContainer/left/blockPos"]
+layout_mode = 2
+text = "x/y/z"
+
+[node name="right" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+top_level = true
+mesh = ExtResource("2_2g45g")

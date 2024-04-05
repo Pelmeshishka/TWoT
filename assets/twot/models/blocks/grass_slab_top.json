@@ -1,0 +1,9 @@
+{
+  "parent": "twot:slab_top",
+  "texturePaths": {
+	"up": "twot:grass",
+	"side": "twot:grass_dirt",
+	"down": "twot:dirt"
+  },
+  "faces": []
+}

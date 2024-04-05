@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw8kc4i6ooavl"]
+
+[ext_resource type="Script" path="res://create_blockstate/VariantPath.cs" id="1_0qe3n"]
+
+[node name="VariantPath" type="VBoxContainer" node_paths=PackedStringArray("variantKey", "modelKey", "uvLock", "rotY", "rotX")]
+script = ExtResource("1_0qe3n")
+variantKey = NodePath("HBoxContainer/VariantKey")
+modelKey = NodePath("HBoxContainer2/ModelKey")
+uvLock = NodePath("HBoxContainer3/UVlock")
+rotY = NodePath("HBoxContainer3/RotY")
+rotX = NodePath("HBoxContainer3/RotX")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VariantKey" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Variant
+d"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Apply"
+
+[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Remove"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "Model: "
+
+[node name="ModelKey" type="LineEdit" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "twot:grass"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer3"]
+layout_mode = 2
+text = "UVlock: "
+
+[node name="UVlock" type="CheckBox" parent="HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="HBoxContainer3"]
+layout_mode = 2
+text = "Rotation Y: "
+
+[node name="RotY" type="SpinBox" parent="HBoxContainer3"]
+layout_mode = 2
+min_value = -360.0
+max_value = 360.0
+
+[node name="Label2" type="Label" parent="HBoxContainer3"]
+layout_mode = 2
+text = "Rotation X: "
+
+[node name="RotX" type="SpinBox" parent="HBoxContainer3"]
+layout_mode = 2
+min_value = -360.0
+max_value = 360.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14902, 0.34902, 0.345098, 1)
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Button" to="." method="ApplyChanges"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Button2" to="." method="RemoveVariant"]

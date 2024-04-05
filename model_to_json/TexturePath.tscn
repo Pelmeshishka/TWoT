@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdottbagkgq37"]
+
+[ext_resource type="Script" path="res://model_to_json/TexturePath.cs" id="1_auhxq"]
+
+[node name="parent_0" type="HBoxContainer" node_paths=PackedStringArray("originLabel", "pathLabel", "textureLabel")]
+script = ExtResource("1_auhxq")
+originLabel = NodePath("OriginLabel")
+pathLabel = NodePath("PathLabel")
+textureLabel = NodePath("KeyEntry")
+
+[node name="OriginLabel" type="Label" parent="."]
+layout_mode = 2
+text = "P"
+
+[node name="PathLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Path"
+
+[node name="KeyEntry" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3

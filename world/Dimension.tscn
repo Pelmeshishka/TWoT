@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv1a5t2lupslu"]
+
+[ext_resource type="Script" path="res://world/Dimension.cs" id="1_fjb5h"]
+
+[node name="Dimension" type="Node" node_paths=PackedStringArray("dimSectionContainer")]
+script = ExtResource("1_fjb5h")
+dimSectionContainer = NodePath("DimSection")
+
+[node name="DimSection" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true

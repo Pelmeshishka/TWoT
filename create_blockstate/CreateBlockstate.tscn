@@ -1,0 +1,182 @@
+[gd_scene load_steps=3 format=3 uid="uid://clvk8mw0lbtb6"]
+
+[ext_resource type="Script" path="res://create_blockstate/CreateBlockstate.cs" id="1_psclw"]
+[ext_resource type="ArrayMesh" uid="uid://di1lopppiqi13" path="res://test/test.tres" id="2_0jigj"]
+
+[node name="CreateBlockstate" type="Node3D" node_paths=PackedStringArray("toInstance", "toColl", "blockEntry", "variantsContainer", "halfOption")]
+script = ExtResource("1_psclw")
+toInstance = NodePath("MeshInstance3D")
+toColl = NodePath("MeshInstance3D/StaticBody3D/CollisionShape3D")
+blockEntry = NodePath("Control/MarginContainer/VBoxContainer/LineEdit")
+variantsContainer = NodePath("Control/MarginContainer/VBoxContainer/HBoxContainer3/Variants2/Variants")
+halfOption = NodePath("Control/MarginContainer/VBoxContainer/HBoxContainer3/Params2/Params/Half/HalfOption")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -0.5)
+mesh = ExtResource("2_0jigj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+
+[node name="Control" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00784314, 0.054902, 0.0588235, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Screen" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Cam1" type="SubViewportContainer" parent="Control/MarginContainer/VBoxContainer/Screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/MarginContainer/VBoxContainer/Screen/Cam1"]
+handle_input_locally = false
+size = Vector2i(554, 228)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="Control/MarginContainer/VBoxContainer/Screen/Cam1/SubViewport"]
+transform = Transform3D(0.64679, 0.381334, -0.66049, 0, 0.866025, 0.5, 0.762668, -0.323395, 0.560136, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Control/MarginContainer/VBoxContainer/Screen/Cam1/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Cam2" type="SubViewportContainer" parent="Control/MarginContainer/VBoxContainer/Screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/MarginContainer/VBoxContainer/Screen/Cam2"]
+handle_input_locally = false
+size = Vector2i(554, 228)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="Control/MarginContainer/VBoxContainer/Screen/Cam2/SubViewport"]
+transform = Transform3D(-0.644123, 0.382461, 0.662441, 0, 0.866025, -0.5, -0.764921, -0.322062, -0.557827, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Control/MarginContainer/VBoxContainer/Screen/Cam2/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="FromLabel" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Block Key"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "twot:grass"
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Load" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load"
+
+[node name="Save" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save"
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14902, 0.34902, 0.345098, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Variants"
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GenerateVariant" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Generate New"
+
+[node name="ColorRect2" type="ColorRect" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14902, 0.34902, 0.345098, 1)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Params2" type="ScrollContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Params" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer3/Params2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Half" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer3/Params2/Params"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer3/Params2/Params/Half"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Half: "
+horizontal_alignment = 2
+
+[node name="HalfOption" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/HBoxContainer3/Params2/Params/Half"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect2" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+color = Color(0.14902, 0.34902, 0.345098, 1)
+
+[node name="Variants2" type="ScrollContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Variants" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer3/Variants2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/Load" to="." method="LoadBlock"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/Save" to="." method="SaveJson"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/GenerateVariant" to="." method="GenerateNewVariant"]
+[connection signal="item_selected" from="Control/MarginContainer/VBoxContainer/HBoxContainer3/Params2/Params/Half/HalfOption" to="." method="SelectHalf"]

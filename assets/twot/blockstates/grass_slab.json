@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "default": {
+      "modelKey": "twot:grass",
+      "uvLock": false,
+      "rotY": 0,
+      "rotX": 0
+    },
+    "half=bottom": {
+      "modelKey": "twot:grass_slab_bottom",
+      "uvLock": false,
+      "rotY": 0,
+      "rotX": 0
+    },
+    "half=top": {
+      "modelKey": "twot:grass_slab_top",
+      "uvLock": false,
+      "rotY": 0,
+      "rotX": 0
+    }
+  }
+}

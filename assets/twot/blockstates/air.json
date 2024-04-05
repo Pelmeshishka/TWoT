@@ -1,0 +1,10 @@
+{
+  "variants": {
+	"default": {
+	  "modelKey": "twot:air",
+	  "uvLock": false,
+	  "rotY": 0,
+	  "rotX": 0
+	}
+  }
+}

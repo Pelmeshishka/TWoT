@@ -1,0 +1,7 @@
+{
+  "parent": "twot:blocksolid",
+  "texturePaths": {
+	"side": "twot:bedrock"
+  },
+  "faces": []
+}

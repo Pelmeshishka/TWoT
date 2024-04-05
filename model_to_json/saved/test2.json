@@ -1,0 +1,12 @@
+{
+  "parent": "model_to_json/saved/test.json",
+  "textures": {
+	"east": "twot:east",
+	"north": "twot:north",
+	"up": "twot:up",
+	"south": "twot:south",
+	"down": "twot:down",
+	"west": "twot:west"
+  },
+  "meshData": {}
+}

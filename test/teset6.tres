@@ -1,0 +1,186 @@
+[gd_resource type="ArrayMesh" load_steps=14 format=3 uid="uid://cvummwdqotn8q"]
+
+[ext_resource type="Texture2D" uid="uid://bopaehdgjcmpm" path="res://model_to_json/imported/block_up.png" id="1_wc07e"]
+[ext_resource type="Texture2D" uid="uid://4rqcer28q2vl" path="res://model_to_json/imported/block_south.png" id="2_6agm6"]
+[ext_resource type="Texture2D" uid="uid://cxlldb3vb76o6" path="res://model_to_json/imported/block_west.png" id="3_5um7q"]
+[ext_resource type="Texture2D" uid="uid://d3ecg6bwd8wp0" path="res://model_to_json/imported/block_down.png" id="4_srok5"]
+[ext_resource type="Texture2D" uid="uid://hgjkaa5tri41" path="res://model_to_json/imported/block_east.png" id="5_e1mdw"]
+[ext_resource type="Texture2D" uid="uid://cujumjtg1qb46" path="res://model_to_json/imported/block_north.png" id="6_m5fa5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0dqi"]
+resource_name = "up"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_wc07e")
+roughness = 0.5
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nv4cf"]
+resource_name = "south"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_6agm6")
+roughness = 0.5
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5hmn"]
+resource_name = "west"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_5um7q")
+roughness = 0.5
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71fy5"]
+resource_name = "down"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_srok5")
+roughness = 0.5
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8od1p"]
+resource_name = "east"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_e1mdw")
+roughness = 0.5
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ad5u7"]
+resource_name = "north"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_m5fa5")
+roughness = 0.5
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sjpru"]
+_surfaces = [{
+"aabb": AABB(0, 1, 0, 1.00001, 1.00136e-05, 1),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 2, 0, 3, 0, 1, 0),
+"name": "up",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 128, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63)
+}, {
+"aabb": AABB(0, 0, 1, 1.00001, 1, 1.00136e-05),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 1, 0, 3, 0, 0, 0),
+"name": "south",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63)
+}, {
+"aabb": AABB(0, 0, 0, 1e-05, 1, 1.00001),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 2, 0, 0, 0, 3, 0),
+"name": "west",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128)
+}, {
+"aabb": AABB(0, 0, 0, 1, 1e-05, 1),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 2, 0, 3, 0, 1, 0),
+"name": "down",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63)
+}, {
+"aabb": AABB(1, 0, 0, 1.00136e-05, 1, 1),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 1, 0, 3, 0, 0, 0),
+"name": "east",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 128)
+}, {
+"aabb": AABB(0, 0, 0, 1, 1, 1e-05),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 2, 0, 0, 0, 3, 0),
+"name": "north",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 128, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 128, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 128)
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "block_Cube_001"
+_surfaces = [{
+"aabb": AABB(0, 1, 0, 1.00001, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(113, 249, 127, 63, 0, 0, 210, 56, 0, 160, 209, 56, 0, 224, 209, 56, 114, 249, 127, 63, 113, 249, 127, 63, 0, 224, 209, 56, 115, 249, 127, 63),
+"format": 4119,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 2, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_o0dqi"),
+"name": "up",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 128, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 128, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 255, 127, 255, 255, 254, 255, 255, 191)
+}, {
+"aabb": AABB(0, 0, 1, 1.00001, 1, 1.00136e-05),
+"attribute_data": PackedByteArray(188, 56, 128, 63, 252, 128, 127, 63, 0, 236, 226, 186, 0, 8, 254, 58, 0, 12, 254, 58, 188, 56, 128, 63, 252, 128, 127, 63, 0, 236, 226, 186),
+"format": 4119,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 1, 0, 3, 0, 0, 0),
+"material": SubResource("StandardMaterial3D_nv4cf"),
+"name": "south",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 255, 127, 255, 127, 135, 255, 195, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 255, 127, 255, 127, 135, 255, 195, 191, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 255, 127, 255, 127, 135, 255, 195, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 255, 127, 255, 127, 135, 255, 195, 191)
+}, {
+"aabb": AABB(0, 0, 0, 1e-05, 1, 1.00001),
+"attribute_data": PackedByteArray(115, 249, 127, 63, 111, 249, 127, 63, 115, 249, 127, 63, 0, 160, 209, 56, 92, 172, 209, 56, 0, 160, 209, 56, 72, 219, 209, 56, 115, 249, 127, 63),
+"format": 4119,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 2, 0, 0, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_o5hmn"),
+"name": "west",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 128, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 255, 127, 255, 127, 255, 191)
+}, {
+"aabb": AABB(0, 0, 0, 1, 1e-05, 1),
+"attribute_data": PackedByteArray(90, 172, 209, 56, 111, 249, 127, 63, 111, 249, 127, 63, 115, 249, 127, 63, 89, 204, 209, 56, 0, 160, 209, 56, 111, 249, 127, 63, 0, 224, 209, 56),
+"format": 4119,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 2, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_71fy5"),
+"name": "down",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 255, 127, 0, 0, 254, 255, 255, 191, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 128, 255, 127, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 255, 127, 0, 0, 254, 255, 255, 191, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 255, 127, 0, 0, 254, 255, 255, 191)
+}, {
+"aabb": AABB(1, 0, 0, 1.00136e-05, 1, 1),
+"attribute_data": PackedByteArray(114, 249, 127, 63, 117, 249, 127, 63, 0, 224, 209, 56, 0, 192, 209, 56, 0, 192, 209, 56, 116, 249, 127, 63, 112, 249, 127, 63, 0, 32, 210, 56),
+"format": 4119,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 1, 0, 3, 0, 0, 0),
+"material": SubResource("StandardMaterial3D_8od1p"),
+"name": "east",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 128, 255, 255, 255, 127, 254, 255, 255, 255, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 255, 255, 255, 127, 254, 255, 255, 255, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 255, 255, 255, 127, 255, 255, 255, 255, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 128, 255, 255, 255, 127, 254, 255, 255, 255)
+}, {
+"aabb": AABB(0, 0, 0, 1, 1, 1e-05),
+"attribute_data": PackedByteArray(112, 249, 127, 63, 115, 249, 127, 63, 114, 249, 127, 63, 0, 192, 209, 56, 0, 192, 209, 56, 0, 128, 209, 56, 0, 192, 209, 56, 112, 249, 127, 63),
+"format": 4119,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 2, 0, 0, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_ad5u7"),
+"name": "north",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 128, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 128, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 128, 255, 255, 255, 255, 0, 0, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_sjpru")
